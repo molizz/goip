@@ -33,7 +33,7 @@ fmt.Println(location.City)
 
 ### 有的平台需要Key
 
-有的平台是需要申请key的
+有的平台是需要申请key的
 
 - 腾讯地图api： http://lbs.qq.com/webservice_v1/guide-ip.html
 - 高德地图api： http://lbs.amap.com/api/webservice/guide/api/ipconfig
