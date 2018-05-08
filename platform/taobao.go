@@ -54,5 +54,12 @@ func (t *Taobao) parseToMap(str string) (map[string]string, error) {
 		return nil, fmt.Errorf("Result code is %d", resp.Code)
 	}
 
+	// 去掉淘宝返回无用的数据
+	for k, v := range resp.Data {
+		if v == "XX" {
+			resp.Data[k] = ""
+		}
+	}
+
 	return resp.Data, nil
 }

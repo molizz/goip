@@ -30,11 +30,16 @@ type Location struct {
 
 func (l *Location) String() string {
 	strs := make([]string, 0)
-	strs = append(strs, l.Country)
-	strs = append(strs, l.Region)
-	strs = append(strs, l.City)
-	strs = append(strs, l.District)
-	strs = append(strs, l.Isp)
+	appendFunc := func(s string) {
+		if len(s) > 0 {
+			strs = append(strs, s)
+		}
+	}
+	appendFunc(l.Country)
+	appendFunc(l.Region)
+	appendFunc(l.City)
+	appendFunc(l.District)
+	appendFunc(l.Isp)
 
 	return strings.Join(strs, " ")
 }
