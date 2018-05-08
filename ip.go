@@ -11,8 +11,24 @@ type Platform interface {
 
 var plts []Platform
 
-func AddPlatform(obj Platform) {
-	plts = append(plts, obj)
+func addPlatform(p Platform) {
+	plts = append(plts, p)
+}
+
+func AddTaobao() {
+	addPlatform(platform.NewTaobao())
+}
+
+func AddAmap(key string) {
+	addPlatform(platform.NewAmap(key))
+}
+
+func AddTencent(key string) {
+	addPlatform(platform.NewTencent(key))
+}
+
+func AddChinaz() {
+	addPlatform(platform.NewChinaz())
 }
 
 func GetLocation(ip string) (location *platform.Location, err error) {

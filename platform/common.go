@@ -5,8 +5,10 @@ import (
 	"io"
 	"net/http"
 	"net/url"
-	"qiniupkg.com/x/errors.v7"
+	"strings"
 	"time"
+
+	"qiniupkg.com/x/errors.v7"
 )
 
 const (
@@ -24,6 +26,17 @@ type Location struct {
 	City     string // 市
 	District string // 区
 	Isp      string // 电信 联通 之类的
+}
+
+func (l *Location) String() string {
+	strs := make([]string, 0)
+	strs = append(strs, l.Country)
+	strs = append(strs, l.Region)
+	strs = append(strs, l.City)
+	strs = append(strs, l.District)
+	strs = append(strs, l.Isp)
+
+	return strings.Join(strs, " ")
 }
 
 func HttpGet(apiUrl string) (string, error) {

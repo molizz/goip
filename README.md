@@ -15,17 +15,15 @@
 
 import "github.com/molizz/goip"
 
-taobao := platform.NewTaobao()
-tencent := platform.NewTencent("key")
-goip.AddPlatform(taobao)
-goip.AddPlatform(tencent)
+goip.AddTaobao()
+goip.AddTencent("key")
 
 location, err := goip.GetLocation("35.185.191.24")
 fmt.Println(location.City)
 
 ```
 
-你可以通过AddPlatform添加多个platform，比如上面添加了2个平台，当淘宝的无法使用时，将自动使用腾讯的。
+上面添加了2个平台，当淘宝的无法使用时，将自动使用腾讯的。
 
 因为大部分平台都是有并发限制的。
 
