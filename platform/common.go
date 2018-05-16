@@ -28,7 +28,7 @@ type Location struct {
 	Isp      string // 电信 联通 之类的
 }
 
-func (l *Location) String() string {
+func (l *Location) ToString() string {
 	strs := make([]string, 0)
 	appendFunc := func(s string) {
 		if len(s) > 0 {

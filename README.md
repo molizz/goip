@@ -15,11 +15,8 @@
 
 import "github.com/molizz/goip"
 
-goip.AddTaobao()
-goip.AddTencent("key")
-
-location, err := goip.GetLocation("35.185.191.24")
-fmt.Println(location.City)
+address, err := goip.AddTaobao().AddTencent("key").GetLocation("35.185.191.24")
+fmt.Println(address.City)
 
 ```
 
