@@ -9,6 +9,10 @@ type Platform interface {
 	GetLocation(ip string) (*platform.Location, error)
 }
 
+type Locator interface {
+	ToString() string
+}
+
 type Address struct {
 	plts []Platform
 }
@@ -45,18 +49,18 @@ func AddChinaz() *Address {
 	return address
 }
 
-func (a *Address) GetLocation(ip string) (location *platform.Location, err error) {
+func (a *Address) GetLocation(ip string) (locator Locator, err error) {
 	length := len(a.plts)
 	if length == 0 {
 		return nil, errors.New("Not found Platform")
 	}
 
 	for _, plt := range a.plts {
-		location, err = plt.GetLocation(ip)
+		locator, err = plt.GetLocation(ip)
 		if err != nil {
 			continue
 		}
-		return location, nil
+		return locator, nil
 	}
 
 	return nil, err
