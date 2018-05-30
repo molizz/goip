@@ -2,13 +2,12 @@ package platform
 
 import (
 	"bytes"
+	"errors"
 	"io"
 	"net/http"
 	"net/url"
 	"strings"
 	"time"
-
-	"qiniupkg.com/x/errors.v7"
 )
 
 const (
