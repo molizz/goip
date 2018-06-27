@@ -5,7 +5,7 @@ import (
 )
 
 func TestGetLocation(t *testing.T) {
-	location, err := AddTaobao().GetLocation("35.185.191.24")
+	location, err := AddTaobao().GetLocation("123.58.180.8")
 	if err != nil {
 		t.Error(err, location.ToString())
 	}
