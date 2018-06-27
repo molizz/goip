@@ -38,6 +38,13 @@ func (t *Tencent) GetLocation(ip string) (*Location, error) {
 		//Isp:     data[""],
 	}
 
+	if len(location.City) == 0 {
+		location.City = location.Region
+	}
+	if len(location.Region) == 0 {
+		location.Region = location.Country
+	}
+
 	return location, nil
 }
 

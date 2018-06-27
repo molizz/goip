@@ -27,6 +27,18 @@ type Location struct {
 	Isp      string // 电信 联通 之类的
 }
 
+func (l *Location) GetCountry() string {
+	return l.Country
+}
+
+func (l *Location) GetRegion() string {
+	return l.Region
+}
+
+func (l *Location) GetCity() string {
+	return l.City
+}
+
 func (l *Location) ToString() string {
 	strs := make([]string, 0)
 	appendFunc := func(s string) {

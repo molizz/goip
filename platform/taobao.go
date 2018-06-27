@@ -34,6 +34,12 @@ func (t *Taobao) GetLocation(ip string) (*Location, error) {
 		City:    data["city"],
 		Isp:     data["isp"],
 	}
+	if len(location.City) == 0 {
+		location.City = location.Region
+	}
+	if len(location.Region) == 0 {
+		location.Region = location.Country
+	}
 
 	return location, nil
 }

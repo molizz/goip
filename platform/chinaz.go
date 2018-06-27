@@ -32,6 +32,13 @@ func (c *Chinaz) GetLocation(ip string) (*Location, error) {
 	location := c.parseRegion(lc)
 	location.Ip = ip
 
+	if len(location.City) == 0 {
+		location.City = location.Region
+	}
+	if len(location.Region) == 0 {
+		location.Region = location.Country
+	}
+
 	return location, nil
 }
 

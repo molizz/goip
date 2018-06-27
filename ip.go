@@ -10,6 +10,10 @@ type Platform interface {
 }
 
 type Locator interface {
+	GetCountry() string
+	GetRegion() string
+	GetCity() string
+
 	ToString() string
 }
 
