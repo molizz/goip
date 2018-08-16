@@ -13,7 +13,7 @@ type Tencent struct {
 func NewTencent(key string) *Tencent {
 	return &Tencent{
 		key:    key,
-		apiUrl: "http://apis.map.qq.com/ws/location/v1/ip?ip=%s&key=%s",
+		apiUrl: "https://apis.map.qq.com/ws/location/v1/ip?ip=%s&key=%s",
 	}
 }
 
