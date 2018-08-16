@@ -53,6 +53,11 @@ func AddChinaz() *Address {
 	return address
 }
 
+func AddLocal() *Address {
+	addPlatform(platform.NewLocal())
+	return address
+}
+
 func GetLocation(ip string) (locator Locator, err error) {
 	length := len(address.plts)
 	if length == 0 {
