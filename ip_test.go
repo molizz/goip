@@ -2,11 +2,15 @@ package goip
 
 import (
 	"testing"
+	"fmt"
 )
 
 func TestGetLocation(t *testing.T) {
-	location, err := AddTaobao().GetLocation("123.58.180.8")
+	AddTaobao()
+	location, err := GetLocation("123.58.180.8")
 	if err != nil {
-		t.Error(err, location.ToString())
+		t.Error(err)
+		return
 	}
+	fmt.Println(location.ToString())
 }

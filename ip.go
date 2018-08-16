@@ -53,13 +53,13 @@ func AddChinaz() *Address {
 	return address
 }
 
-func (a *Address) GetLocation(ip string) (locator Locator, err error) {
-	length := len(a.plts)
+func GetLocation(ip string) (locator Locator, err error) {
+	length := len(address.plts)
 	if length == 0 {
 		return nil, errors.New("Not found Platform")
 	}
 
-	for _, plt := range a.plts {
+	for _, plt := range address.plts {
 		locator, err = plt.GetLocation(ip)
 		if err != nil {
 			continue
