@@ -1,8 +1,6 @@
 package platform
 
 import (
-	"fmt"
-
 	"github.com/ipipdotnet/datx-go"
 )
 
@@ -12,7 +10,7 @@ type Local struct {
 
 func NewLocal() *Local {
 	return &Local{
-		dbPath: "db/17monipdb.datx",
+		dbPath: "ipdb/17monipdb.datx",
 	}
 }
 
@@ -33,6 +31,5 @@ func (c *Local) GetLocation(ip string) (*Location, error) {
 		District: loc.City,
 		Isp:      loc.ISP,
 	}
-	fmt.Println(string(loc.ToJSON()))
 	return location, nil
 }

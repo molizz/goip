@@ -2,6 +2,9 @@ package goip
 
 import (
 	"errors"
+	"fmt"
+
+	"github.com/molizz/goip/ipdb"
 	"github.com/molizz/goip/platform"
 )
 
@@ -24,6 +27,11 @@ type Address struct {
 var address *Address
 
 func init() {
+	err := ipdb.RestoreAsset("ipdb", "17monipdb.datx")
+	if err != nil {
+		fmt.Println("无法释放ip数据库(17monipdb.datx), 将无法正常使用ip获取服务: ", err)
+	}
+
 	address = &Address{
 		plts: make([]Platform, 0, 1),
 	}
