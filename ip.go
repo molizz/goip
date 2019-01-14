@@ -61,6 +61,11 @@ func AddChinaz() *Address {
 	return address
 }
 
+func AddIPIP() *Address {
+	addPlatform(platform.NewIPIP())
+	return address
+}
+
 func AddLocal() *Address {
 	addPlatform(platform.NewLocal())
 	return address
