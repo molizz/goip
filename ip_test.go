@@ -6,7 +6,7 @@ import (
 )
 
 func TestGetLocation(t *testing.T) {
-	AddLocal()
+	AddIPIP()
 	location, err := GetLocation("123.58.180.8")
 	if err != nil {
 		t.Error(err)
