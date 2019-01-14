@@ -6,8 +6,8 @@ import (
 )
 
 func TestGetLocation(t *testing.T) {
-	AddIPIP()
-	location, err := GetLocation("123.58.180.8")
+
+	location, err := AddIPIP().GetLocation("123.58.180.8")
 	if err != nil {
 		t.Error(err)
 		return

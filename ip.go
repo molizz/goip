@@ -23,6 +23,23 @@ type Address struct {
 
 var address *Address
 
+func (a *Address) GetLocation(ip string) (locator Locator, err error) {
+	length := len(address.plts)
+	if length == 0 {
+		return nil, errors.New("Not found Platform")
+	}
+
+	for _, plt := range address.plts {
+		locator, err = plt.GetLocation(ip)
+		if err != nil {
+			continue
+		}
+		return locator, nil
+	}
+
+	return nil, err
+}
+
 func init() {
 	address = &Address{
 		plts: make([]Platform, 0, 1),
@@ -56,21 +73,4 @@ func AddChinaz() *Address {
 func AddIPIP() *Address {
 	addPlatform(platform.NewIPIP())
 	return address
-}
-
-func GetLocation(ip string) (locator Locator, err error) {
-	length := len(address.plts)
-	if length == 0 {
-		return nil, errors.New("Not found Platform")
-	}
-
-	for _, plt := range address.plts {
-		locator, err = plt.GetLocation(ip)
-		if err != nil {
-			continue
-		}
-		return locator, nil
-	}
-
-	return nil, err
 }
