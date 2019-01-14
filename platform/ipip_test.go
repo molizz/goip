@@ -5,11 +5,11 @@ import (
 	"testing"
 )
 
-func TestNewTaobao(t *testing.T) {
-	tb := NewTaobao()
-	loc, err := tb.GetLocation("61.132.63.68")
+func TestNewIPIP(t *testing.T) {
+	ipip := NewIPIP()
+	loc, err := ipip.GetLocation("119.137.53.154")
 	if err != nil {
-		t.Fatal(err, loc)
+		t.Fatal(err)
 	}
 	fmt.Println("location: ", loc.Country, loc.Region, loc.City, loc.Isp)
 }

@@ -15,7 +15,8 @@ const (
 )
 
 var (
-	ErrRespIsNull = errors.New("Response is null") // 这个错误一般是301等
+	ErrRespIsNull  = errors.New("response is null") // 这个错误一般是301等
+	ErrRespIsError = errors.New("response is err")  // 错误的返回数据
 )
 
 type Location struct {
