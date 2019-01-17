@@ -10,8 +10,8 @@ import (
 	"time"
 )
 
-const (
-	requestTimeout = 10 * time.Second
+var (
+	RequestTimeout = 10 * time.Second
 )
 
 var (
@@ -57,7 +57,7 @@ func (l *Location) ToString() string {
 }
 
 func HttpGet(apiUrl string) (string, error) {
-	client := &http.Client{Timeout: requestTimeout}
+	client := &http.Client{Timeout: RequestTimeout}
 
 	resp, err := client.Get(apiUrl)
 	if err != nil {
@@ -78,7 +78,7 @@ func HttpGet(apiUrl string) (string, error) {
 }
 
 func HttpPost(apiUrl string, form map[string]string) (string, error) {
-	client := &http.Client{Timeout: requestTimeout}
+	client := &http.Client{Timeout: RequestTimeout}
 
 	formValues := url.Values{}
 	for k, v := range form {
