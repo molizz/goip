@@ -70,7 +70,12 @@ func AddChinaz() *Address {
 	return address
 }
 
-func AddIPIP() *Address {
-	addPlatform(platform.NewIPIP())
+func AddFreeIPIP() *Address {
+	addPlatform(platform.NewFreeIPIP())
+	return address
+}
+
+func AddIPIP(token string) *Address {
+	addPlatform(platform.NewIPIP(token))
 	return address
 }
