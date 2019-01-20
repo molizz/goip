@@ -52,7 +52,7 @@ func (i *IPIP) GetChargedLocation(ip string) (*Location, error) {
 	url := fmt.Sprintf(i.apiURL, ip)
 
 	var client http.Client
-	client.Timeout = RequestTimeout
+	client.Timeout = Timeout
 	req, err := http.NewRequest("GET", url, nil)
 	if err != nil {
 		return nil, err
