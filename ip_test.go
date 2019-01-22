@@ -6,8 +6,7 @@ import (
 )
 
 func TestGetLocation(t *testing.T) {
-
-	location, err := AddFreeIPIP().GetLocation("123.58.180.8")
+	location, err := AddFreeIPIP().GetLocation("123.58.180.8", 60)
 	if err != nil {
 		t.Error(err)
 		return
@@ -15,8 +14,8 @@ func TestGetLocation(t *testing.T) {
 	fmt.Println(location.ToString())
 }
 
-func TestGetLocationForIPIP(t *testing.T) {
-	location, err := AddIPIP("token").GetLocation("123.58.180.8")
+func TestGetLocationFreeIPIP(t *testing.T) {
+	location, err := AddIPIP("token").GetLocation("123.58.180.8", 60)
 	if err != nil {
 		t.Error(err)
 		return

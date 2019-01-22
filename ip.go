@@ -2,6 +2,8 @@ package goip
 
 import (
 	"errors"
+	"time"
+
 	"github.com/molizz/goip/platform"
 )
 
@@ -23,10 +25,13 @@ type Address struct {
 
 var address *Address
 
-func (a *Address) GetLocation(ip string) (locator Locator, err error) {
+func (a *Address) GetLocation(ip string, timeout int) (locator Locator, err error) {
 	length := len(address.plts)
 	if length == 0 {
 		return nil, errors.New("Not found Platform")
+	}
+	if timeout > 0 {
+		platform.Timeout = time.Duration(timeout) * time.Second
 	}
 
 	for _, plt := range address.plts {
