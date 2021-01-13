@@ -6,7 +6,7 @@ import (
 )
 
 func TestNewIPIP(t *testing.T) {
-	ipip := NewIPIP()
+	ipip := NewIPIP("")
 	loc, err := ipip.GetLocation("119.137.53.154")
 	if err != nil {
 		t.Fatal(err)
