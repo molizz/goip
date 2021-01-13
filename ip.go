@@ -84,3 +84,8 @@ func AddIPIP(token string) *Address {
 	addPlatform(platform.NewIPIP(token))
 	return address
 }
+
+func AddIPIPv2(token string) *Address {
+	addPlatform(platform.NewIPIPv2(token))
+	return address
+}

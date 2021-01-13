@@ -33,3 +33,13 @@ func TestGetLocationFreeIPIP(t *testing.T) {
 	fmt.Println(location.ToString())
 	fmt.Println(location.GetCity())
 }
+
+func TestGetLocationFreeIPIPv2(t *testing.T) {
+	location, err := AddIPIPv2("token").GetLocation("119.139.1.1", 10)
+	if err != nil {
+		t.Error(err)
+		return
+	}
+	fmt.Println(location.ToString())
+	fmt.Println(location.GetCity())
+}
